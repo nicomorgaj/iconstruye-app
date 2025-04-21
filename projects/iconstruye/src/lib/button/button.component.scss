@@ -1,0 +1,59 @@
+@use "../theme/generated/variables" as *;
+
+.p-button {
+  font-family: $font-button-family;
+  font-weight: $font-button-weight;
+  text-transform: $font-button-transform;
+  padding: $size-button-medium-padding;
+  font-size: $size-button-medium-font-size;
+
+  &.primary {
+    background: $button-primary-background-default;
+    border: 2px solid $button-primary-background-border;
+    color: $button-primary-text-default;
+    font-weight: $button-primary-text-weight;
+
+    &:hover {
+      background: $button-primary-background-hover;
+      border: 2px solid $button-primary-background-border;
+      color: $button-primary-text-hover;
+    }
+
+    &:disabled {
+      background: $button-primary-background-disabled;
+      border: 2px solid $button-primary-background-border;
+      color: $button-primary-text-disabled;
+      cursor: not-allowed;
+    }
+  }
+
+  &.secondary {
+    background: $button-secondary-background-default;
+    border: 2px solid $button-secondary-background-border;
+    color: $button-secondary-text-default;
+    font-weight: $button-secondary-text-weight;
+
+    &:hover {
+      background: $button-secondary-background-hover;
+      border: 2px solid $button-secondary-background-border;
+      color: $button-secondary-text-hover;
+    }
+
+    &:disabled {
+      background: $button-secondary-background-disabled;
+      border: 2px solid $button-secondary-background-border;
+      color: $button-secondary-text-disabled;
+      cursor: not-allowed;
+    }
+  }
+
+  &.p-button-small {
+    padding: $size-button-small-padding;
+    font-size: $size-button-small-font-size;
+  }
+
+  &.p-button-large {
+    padding: $size-button-large-padding;
+    font-size: $size-button-large-font-size;
+  }
+}

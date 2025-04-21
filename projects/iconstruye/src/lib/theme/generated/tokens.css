@@ -1,0 +1,36 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+:root {
+  --input-border-radius: 0;
+  --input-background-default: #ebebeb;
+  --input-active-border: #3153a2;
+  --input-active-border-radius: 4px;
+  --button-primary-background-default: #fff;
+  --button-primary-background-hover: #ff6b00;
+  --button-primary-background-disabled: #AECBFA;
+  --button-primary-background-border: #ff6b00;
+  --button-primary-text-default: #3153a2;
+  --button-primary-text-hover: #fff;
+  --button-primary-text-disabled: #3153a2;
+  --button-primary-text-weight: 800;
+  --button-secondary-background-default: #3153a2;
+  --button-secondary-background-hover: #3153a2;
+  --button-secondary-background-disabled: #AECBFA;
+  --button-secondary-background-border: #3153a2;
+  --button-secondary-text-default: #fff;
+  --button-secondary-text-hover: #fff;
+  --button-secondary-text-disabled: #9E9E9E;
+  --button-secondary-text-weight: 800;
+  --size-button-small-padding: 4px 8px;
+  --size-button-small-font-size: 12px;
+  --size-button-medium-padding: 8px 16px;
+  --size-button-medium-font-size: 14px;
+  --size-button-large-padding: 12px 24px;
+  --size-button-large-font-size: 16px;
+  --font-button-family: Nunito, sans-serif;
+  --font-button-weight: 600;
+  --font-button-transform: none;
+  --border-radius-button: 4px;
+}

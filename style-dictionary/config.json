@@ -1,0 +1,22 @@
+{
+  "source": ["tokens/tokens.json"],
+  "platforms": {
+    "scss": {
+      "transformGroup": "scss",
+      "buildPath": "projects/iconstruye/src/lib/theme/generated/",
+      "files": [
+        {
+          "destination": "_variables.scss",
+          "format": "scss/variables",
+          "options": {
+            "outputReferences": true
+          }
+        },
+        {
+          "destination": "tokens.css",
+          "format": "css/variables"
+        }
+      ]
+    }
+  }
+}
