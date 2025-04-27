@@ -27,6 +27,9 @@ router.get("/s/:short", async (req, res) => {
     url.counter -= 1;
 
     const xmlFile = await UrlService.readXMLFile(url.dteId);
+    if (!xmlFile) {
+      return res.status(404).json({ error: "El archivo XML no existe." });
+    }
 
     res.statusCode = 200;
     res.setHeader("Content-Type", "text/xml");

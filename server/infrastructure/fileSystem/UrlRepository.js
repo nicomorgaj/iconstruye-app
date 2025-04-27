@@ -4,8 +4,12 @@ const path = require("path");
 
 class UrlRepository {
   static async readXml(fileName) {
-    const filePath = path.join(paths.dteAssets, fileName);
-    return await fs.readFile(filePath);
+    try {
+      const filePath = path.join(paths.dteAssets, fileName);
+      return await fs.readFile(filePath);
+    } catch (error) {
+      return null;
+    }
   }
 }
 

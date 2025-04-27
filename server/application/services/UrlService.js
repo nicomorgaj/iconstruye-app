@@ -39,6 +39,9 @@ class UrlService {
       return null;
     }
     const filePath = UrlRepository.readXml(dte.fileName);
+    if (!filePath) {
+      return null;
+    }
     return filePath;
   }
 }
