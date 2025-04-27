@@ -1,28 +1,21 @@
-import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { inject, Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ShortUrlService {
+  httpClient = inject(HttpClient);
+
   constructor() {}
 
-  generateShortUrl(url: string): string {
-    const shortUrl = `${this.getCurrentUrl()}document/${btoa(url)}`;
-    return shortUrl;
+  getData() {
+    return this.httpClient.get<any>('http://localhost:3000/api/dte');
   }
 
-  decodeShortUrl(shortUrl: string): string {
-    try {
-      const encodedPart = shortUrl.split('/').pop() || '';
-      const originalUrl = atob(encodedPart);
-      return originalUrl;
-    } catch (error) {
-      console.error('Error decoding short URL:', error);
-      return '';
-    }
-  }
-
-  getCurrentUrl(): string {
-    return window.location.href;
+  getShortUrl(item: number) {
+    return this.httpClient.post<any>(`http://localhost:3000/api/generate-url`, {
+      dteId: item,
+    });
   }
 }

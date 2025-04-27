@@ -2,10 +2,10 @@ const express = require("express");
 const router = express.Router();
 const UrlService = require("../../../application/services/UrlService");
 
-router.get("/generate-url/:id", async (req, res) => {
-  const { id } = req.params;
+router.post("/generate-url", async (req, res) => {
+  const { dteId } = req.body;
   try {
-    const url = await UrlService.generateUrl(id);
+    const url = await UrlService.generateUrl(dteId);
     if (!url) {
       return res.status(404).json({ error: "El DTE no existe." });
     }

@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+import { DialogModule } from 'primeng/dialog';
 import {
   ButtonComponent,
   CardComponent,
@@ -9,24 +10,32 @@ import { ShortUrlService } from '../../services/short-url.service';
 
 @Component({
   selector: 'app-form',
-  imports: [CommonModule, ButtonComponent, InputComponent, CardComponent],
+  imports: [
+    CommonModule,
+    ButtonComponent,
+    InputComponent,
+    CardComponent,
+    DialogModule,
+  ],
   templateUrl: './form.component.html',
   styleUrl: './form.component.scss',
 })
-export class FormComponent {
-  constructor(private shortUrlService: ShortUrlService) {}
+export class FormComponent implements OnInit {
+  shortUrlService = inject(ShortUrlService);
 
-  data: any = [
-    {
-      dte: 'F437T33',
-      rut: '12345678-9',
-      type: 'Factura Electrónica',
-    },
-  ];
+  data: any = [];
+  visible: boolean = false;
 
-  generateURL(event: any) {
-    console.log('Button clicked!', event);
-    const newUrl = this.shortUrlService.generateShortUrl(event);
-    console.log('Generated URL:', newUrl);
+  ngOnInit() {
+    this.shortUrlService.getData().subscribe((res) => {
+      this.data = res;
+    });
+  }
+
+  generateShortUrl(item: any) {
+    this.shortUrlService.getShortUrl(item).subscribe((res) => {
+      this.visible = true;
+      console.log(res);
+    });
   }
 }

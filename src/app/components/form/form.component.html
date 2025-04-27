@@ -3,29 +3,47 @@
   title="Documentos Tributarios"
   subtitle="Listado de documentos tributarios"
 >
+  <p-dialog
+    header="Enlace para Compartir"
+    [modal]="true"
+    [(visible)]="visible"
+    [style]="{ width: '25rem' }"
+    [draggable]="false"
+  >
+    <div class="flex items-center mb-12">
+      <ic-input></ic-input>
+    </div>
+    <div class="flex justify-end gap-2">
+      <ic-button text="Copiar URL" variant="primary"></ic-button>
+      <ic-button
+        text="Cerrar"
+        variant="secondary"
+        (click)="visible = false"
+      ></ic-button>
+    </div>
+  </p-dialog>
   <div>
     <table>
       <thead>
         <tr>
           <th>N°</th>
-          <th>DTE</th>
           <th>RUT Receptor</th>
-          <th>Tipo</th>
-          <th>ShortURL</th>
+          <th>Razón Social</th>
+          <th>Total</th>
+          <th>Acciones</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let item of data; let i = index">
           <td>{{ i + 1 }}</td>
-          <td>{{ item.dte }}</td>
-          <td>{{ item.rut }}</td>
-          <td>{{ item.type }}</td>
-          <td><ic-input type="text"></ic-input></td>
+          <td>{{ item.rutReceptor }}</td>
+          <td>{{ item.razonSocial }}</td>
+          <td>{{ item.total }}</td>
           <td>
             <ic-button
               text="Generar URL"
               variant="primary"
-              (onClick)="generateURL(item.dte)"
+              (onClick)="generateShortUrl(item.id)"
             ></ic-button>
           </td>
         </tr>
