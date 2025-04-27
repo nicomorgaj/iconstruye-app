@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ButtonModule } from 'primeng/button';
 
@@ -14,4 +14,10 @@ export class ButtonComponent {
   @Input() variant: 'primary' | 'secondary' = 'primary';
   @Input() size: 'small' | 'large' | null = null;
   @Input() disabled: boolean = false;
+
+  @Output() onClick: EventEmitter<Event> = new EventEmitter<Event>();
+
+  onButtonClick(event: any): void {
+    this.onClick.emit(event);
+  }
 }

@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "fileName": "F437T33.xml",
+    "rutReceptor": "98765432-1",
+    "razonSocial": "Cliente Ejemplo",
+    "total": 55680
+  },
+  {
+    "id": 2,
+    "fileName": "F438T33.xml",
+    "rutReceptor": "98765432-1",
+    "razonSocial": "Cliente Ejemplo",
+    "total": 55680
+  },
+  {
+    "id": 3,
+    "fileName": "F439T33.xml",
+    "rutReceptor": "98765432-1",
+    "razonSocial": "Cliente Ejemplo",
+    "total": 55680
+  },
+  {
+    "id": 4,
+    "fileName": "F440T33.xml",
+    "rutReceptor": "98765432-1",
+    "razonSocial": "Cliente Ejemplo",
+    "total": 55680
+  },
+  {
+    "id": 5,
+    "fileName": "F441T33.xml",
+    "rutReceptor": "98765432-1",
+    "razonSocial": "Cliente Ejemplo",
+    "total": 55680
+  }
+]

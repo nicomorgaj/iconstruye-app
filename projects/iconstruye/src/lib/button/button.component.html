@@ -1,6 +1,9 @@
-<!-- <button [ngClass]="[variant, size]" [disabled]="disabled">
-  {{ text }}
-</button> -->
-<button pButton [disabled]="disabled" [ngClass]="[variant]" [size]="size">
+<button
+  pButton
+  [disabled]="disabled"
+  [ngClass]="[variant]"
+  [size]="size"
+  (click)="onButtonClick($event)"
+>
   {{ text }}
 </button>

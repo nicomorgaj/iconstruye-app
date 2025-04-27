@@ -1,12 +1,23 @@
 @use "../theme/generated/variables" as *;
 
-.p-inputtext {
-  font-family: $font-button-family;
-  background-color: $input-background-default;
-  border-radius: $input-border-radius;
-  
-  &:focus {
-    border: 1px solid $input-active-border;
-    border-radius: $input-active-border-radius;
+.p-iftalabel {
+  .p-inputtext {
+    background-color: $input-background-default;
+    border-radius: $input-border-radius;
+
+    &:enabled {
+      &:focus {
+        border-color: $input-active-border;
+        border-radius: $input-active-border-radius;
+      }
+    }
+  }
+
+  &:has(input:focus) label,
+  &:has(input:-webkit-autofill) label,
+  &:has(textarea:focus) label,
+  &:has(.p-inputwrapper--focus) label {
+    color: $input-active-border;
+    font-weight: 800;
   }
 }

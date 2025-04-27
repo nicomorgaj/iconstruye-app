@@ -1,7 +1,6 @@
 @use "../theme/generated/variables" as *;
 
 .p-button {
-  font-family: $font-button-family;
   font-weight: $font-button-weight;
   text-transform: $font-button-transform;
   padding: $size-button-medium-padding;

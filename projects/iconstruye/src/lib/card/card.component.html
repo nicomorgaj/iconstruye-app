@@ -1,13 +1,10 @@
-<p-card [style]="{ width: '25rem', overflow: 'hidden' }">
+<p-card>
   <ng-template #header>
     <h3>{{ title }}</h3>
     <p>{{ subtitle }}</p>
   </ng-template>
-  <p><ng-content select="[content]"></ng-content></p>
-
-  <ng-template #footer>
-    <div>
-      <ng-content select="[footer]"></ng-content>
-    </div>
+  <ng-content></ng-content>
+  <ng-template pTemplate="footer">
+    <ng-content select="[footer]"></ng-content>
   </ng-template>
 </p-card>
