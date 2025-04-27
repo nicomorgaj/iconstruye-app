@@ -1,7 +1,12 @@
 @use "../theme/generated/variables" as *;
 
-.p-iftalabel {
+:host {
+  width: 100%;
+}
+
+::ng-deep.p-iftalabel {
   .p-inputtext {
+    width: 100%;
     background-color: $input-background-default;
     border-radius: $input-border-radius;
 

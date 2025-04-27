@@ -1,53 +1,64 @@
-<h1>Form</h1>
-<ic-card
-  title="Documentos Tributarios"
-  subtitle="Listado de documentos tributarios"
->
-  <p-dialog
-    header="Enlace para Compartir"
-    [modal]="true"
-    [(visible)]="visible"
-    [style]="{ width: '25rem' }"
-    [draggable]="false"
-  >
-    <div class="flex items-center mb-12">
-      <ic-input></ic-input>
-    </div>
-    <div class="flex justify-end gap-2">
-      <ic-button text="Copiar URL" variant="primary"></ic-button>
-      <ic-button
-        text="Cerrar"
-        variant="secondary"
-        (click)="visible = false"
-      ></ic-button>
-    </div>
-  </p-dialog>
-  <div>
-    <table>
-      <thead>
-        <tr>
-          <th>N°</th>
-          <th>RUT Receptor</th>
-          <th>Razón Social</th>
-          <th>Total</th>
-          <th>Acciones</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let item of data; let i = index">
-          <td>{{ i + 1 }}</td>
-          <td>{{ item.rutReceptor }}</td>
-          <td>{{ item.razonSocial }}</td>
-          <td>{{ item.total }}</td>
-          <td>
-            <ic-button
-              text="Generar URL"
-              variant="primary"
-              (onClick)="generateShortUrl(item.id)"
-            ></ic-button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+<div class="p-4 flex justify-center">
+  <div class="w-full md:w-8/12">
+    <ic-card
+      cardTitle="Documentos Tributarios"
+      cardSubtitle="Listado de documentos tributarios"
+    >
+      <div>
+        <p-table [value]="data" [tableStyle]="{ 'min-width': '50rem' }">
+          <ng-template #header>
+            <tr>
+              <th>N°</th>
+              <th>RUT Receptor</th>
+              <th>Razón Social</th>
+              <th>Total</th>
+              <th>Acciones</th>
+            </tr>
+          </ng-template>
+          <ng-template #body let-item>
+            <tr>
+              <td>{{ item.id }}</td>
+              <td>{{ item.rutReceptor }}</td>
+              <td>{{ item.razonSocial }}</td>
+              <td>{{ item.total }}</td>
+              <td>
+                <ic-button
+                  text="Generar Enlace"
+                  variant="primary"
+                  (onClick)="generateShortUrl(item.id)"
+                ></ic-button>
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+    </ic-card>
   </div>
-</ic-card>
+</div>
+<p-dialog
+  header="Enlace para Compartir"
+  [modal]="true"
+  [(visible)]="visible"
+  [style]="{ width: '25rem' }"
+  [draggable]="false"
+>
+  <div class="flex items-center w-full mb-4">
+    <ic-input
+      label="Enlace Generado"
+      [value]="shortUrl"
+      [disabled]="true"
+    ></ic-input>
+  </div>
+  <div class="flex justify-end gap-2">
+    <ic-button
+      text="Copiar Enlace"
+      variant="primary"
+      (onClick)="copyShortUrl()"
+    ></ic-button>
+    <ic-button
+      text="Nuevo Enlace"
+      variant="secondary"
+      (onClick)="getShortUrl(selectedItem)"
+    ></ic-button>
+  </div>
+</p-dialog>

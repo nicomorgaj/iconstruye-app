@@ -10,6 +10,6 @@ import { CardModule } from 'primeng/card';
   styleUrls: ['./card.component.scss'],
 })
 export class CardComponent {
-  @Input() title: string = '';
-  @Input() subtitle: string = '';
+  @Input() cardTitle: string = '';
+  @Input() cardSubtitle: string = '';
 }

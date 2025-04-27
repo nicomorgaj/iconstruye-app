@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, input, Input } from '@angular/core';
 import { InputTextModule } from 'primeng/inputtext';
 import { IftaLabelModule } from 'primeng/iftalabel';
 
@@ -10,4 +10,9 @@ import { IftaLabelModule } from 'primeng/iftalabel';
   templateUrl: './input.component.html',
   styleUrl: './input.component.scss',
 })
-export class InputComponent {}
+export class InputComponent {
+  @Input() label: string = '';
+  @Input() placeholder: string = '';
+  @Input() value: string = '';
+  @Input() disabled: boolean = false;
+}

@@ -1,4 +1,11 @@
 <p-iftalabel variant="in">
-  <label for="firstname">Firstname</label>
-  <input type="text" pInputText />
+  <label [for]="label">{{ label }}</label>
+  <input
+    type="text"
+    pInputText
+    class="ic-input"
+    placeholder="{{ placeholder }}"
+    [value]="value"
+    [disabled]="disabled"
+  />
 </p-iftalabel>

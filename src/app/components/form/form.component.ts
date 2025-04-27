@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
+import { Clipboard } from '@angular/cdk/clipboard';
 import { DialogModule } from 'primeng/dialog';
+import { TableModule } from 'primeng/table';
 import {
   ButtonComponent,
   CardComponent,
@@ -16,15 +18,19 @@ import { ShortUrlService } from '../../services/short-url.service';
     InputComponent,
     CardComponent,
     DialogModule,
+    TableModule,
   ],
   templateUrl: './form.component.html',
   styleUrl: './form.component.scss',
 })
 export class FormComponent implements OnInit {
   shortUrlService = inject(ShortUrlService);
+  clipboard = inject(Clipboard);
 
   data: any = [];
   visible: boolean = false;
+  selectedItem: number = 0;
+  shortUrl: string = '';
 
   ngOnInit() {
     this.shortUrlService.getData().subscribe((res) => {
@@ -32,10 +38,21 @@ export class FormComponent implements OnInit {
     });
   }
 
-  generateShortUrl(item: any) {
+  generateShortUrl(item: number) {
+    this.getShortUrl(item);
+
+    this.selectedItem = item;
+    this.visible = true;
+  }
+
+  getShortUrl(item: number) {
     this.shortUrlService.getShortUrl(item).subscribe((res) => {
-      this.visible = true;
-      console.log(res);
+      this.shortUrl = res.shortUrl;
     });
+  }
+
+  copyShortUrl() {
+    this.clipboard.copy(this.shortUrl);
+    // alert('Enlace copiado al portapapeles');
   }
 }
