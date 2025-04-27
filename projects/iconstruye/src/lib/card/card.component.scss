@@ -1,6 +1,5 @@
 @use "../theme/generated/variables" as *;
 
-p-card {
-  background: $button-primary-text-default !important;
+::ng-deep .p-card {
   box-shadow: 15px 15px 50px 3px rgba(0, 0, 0, 0.15);
 }
