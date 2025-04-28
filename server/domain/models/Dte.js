@@ -1,7 +1,8 @@
 class Dte {
-  constructor({ id, fileName, rutReceptor, razonSocial, total }) {
+  constructor({ id, tipo, fileName, rutReceptor, razonSocial, total }) {
     // Validaciones de presencia
     if (!id) throw new Error("El id es obligatorio");
+    if (!tipo) throw new Error("El tipo es obligatorio");
     if (!fileName) throw new Error("El nombre del archivo es obligatorio");
     if (!rutReceptor) throw new Error("El RUT del receptor es obligatorio");
     if (!razonSocial) throw new Error("La razón social es obligatoria");
@@ -25,6 +26,7 @@ class Dte {
 
     // Asignación
     this.id = id;
+    this.tipo = tipo;
     this.fileName = fileName;
     this.rutReceptor = rutReceptor;
     this.razonSocial = razonSocial;

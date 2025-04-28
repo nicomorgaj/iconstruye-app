@@ -1,37 +1,42 @@
 [
   {
     "id": 1,
-    "fileName": "F437T33.xml",
-    "rutReceptor": "98765432-1",
-    "razonSocial": "Cliente Ejemplo",
-    "total": 55680
+    "tipo": "Factura",
+    "fileName": "F30001T33.xml",
+    "rutReceptor": "12345678-9",
+    "razonSocial": "FERRETERIA EL TRIUNFO",
+    "total": 29750
   },
   {
     "id": 2,
-    "fileName": "F438T33.xml",
+    "tipo": "Factura",
+    "fileName": "F30002T33.xml",
     "rutReceptor": "98765432-1",
-    "razonSocial": "Cliente Ejemplo",
-    "total": 55680
+    "razonSocial": "CONSTRUCTORA SAN MIGUEL",
+    "total": 59500
   },
   {
     "id": 3,
-    "fileName": "F439T33.xml",
-    "rutReceptor": "98765432-1",
-    "razonSocial": "Cliente Ejemplo",
-    "total": 55680
+    "tipo": "Boleta",
+    "fileName": "B40001T39.xml",
+    "rutReceptor": "60803000-K",
+    "razonSocial": "PUBLICO GENERAL",
+    "total": 8000
   },
   {
     "id": 4,
-    "fileName": "F440T33.xml",
-    "rutReceptor": "98765432-1",
-    "razonSocial": "Cliente Ejemplo",
-    "total": 55680
+    "tipo": "Boleta",
+    "fileName": "B40002T39.xml",
+    "rutReceptor": "60803000-K",
+    "razonSocial": "PUBLICO GENERAL",
+    "total": 10000
   },
   {
     "id": 5,
-    "fileName": "F441T33.xml",
-    "rutReceptor": "98765432-1",
-    "razonSocial": "Cliente Ejemplo",
-    "total": 55680
+    "tipo": "Boleta",
+    "fileName": "B40003T39.xml",
+    "rutReceptor": "60803000-K",
+    "razonSocial": "PUBLICO GENERAL",
+    "total": 15000
   }
 ]

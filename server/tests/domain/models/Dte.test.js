@@ -10,6 +10,7 @@ describe("Dte", () => {
       () =>
         new Dte({
           id: "abc",
+          tipo: "Factura",
           fileName: "doc.xml",
           rutReceptor: "12345678-9",
           razonSocial: "Empresa",
@@ -23,6 +24,7 @@ describe("Dte", () => {
       () =>
         new Dte({
           id: "1",
+          tipo: "Factura",
           fileName: "doc.txt",
           rutReceptor: "12345678-9",
           razonSocial: "Empresa",
@@ -36,6 +38,7 @@ describe("Dte", () => {
       () =>
         new Dte({
           id: "1",
+          tipo: "Factura",
           fileName: "doc.xml",
           rutReceptor: "12345678-9",
           razonSocial: "Empresa Ltda",
@@ -47,12 +50,14 @@ describe("Dte", () => {
   it("debería crear un DTE válido si los datos son correctos", () => {
     const dte = new Dte({
       id: "1",
+      tipo: "Factura",
       fileName: "documento.xml",
       rutReceptor: "12345678-9",
       razonSocial: "Empresa Ltda",
       total: 1000,
     });
     expect(dte.id).toBe("1");
+    expect(dte.tipo).toBe("Factura");
     expect(dte.fileName).toBe("documento.xml");
     expect(dte.rutReceptor).toBe("12345678-9");
     expect(dte.razonSocial).toBe("Empresa Ltda");
