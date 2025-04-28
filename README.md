@@ -32,8 +32,21 @@ Además, se desarrolló una demo frontend en **Angular**, implementando un **Des
 
 ## 📁 Estructura del Proyecto
 
-- `/`: carpeta raíz donde se encuentra el proyecto frontend y backend.
-- `server/`: contiene el desarrollo backend.
+El proyecto sigue una estructura basada en **Arquitectura Hexagonal** (también conocida como Ports and Adapters), separando claramente la lógica de negocio del acceso a infraestructura y servicios externos.
+
+La estructura principal es:
+
+```
+server/
+├── application/services/
+├── assets/DTE/
+├── config/
+├── domain/models/
+├── infrastructure/
+│   ├── db/
+│   ├── express/routes/
+│   └── fileSystem/
+```
 
 ---
 
@@ -87,7 +100,7 @@ Define los **endpoints HTTP** expuestos hacia el exterior:
 #### `infrastructure/fileSystem/`
 Implementación de repositorios que acceden al sistema de archivos:
 - `DteRepository.js`: Manejo de operaciones de lectura de la Base de datos en memoria de los DTEs.
-- `UrlRepository.js`: Manejo de operaciones de lectura de los archivos XML que serán visualizados utilizando los ShortURLs.
+- `UrlRepository.js`: Manejo de operaciones de persistencia de ShortURLs, incluyendo su creación, validación de expiración y control de accesos.
 
 ---
 
@@ -137,6 +150,56 @@ $ ng serve
 ```
 
 El servidor de desarrollo de Angular estará disponible en: [http://localhost:4200](http://localhost:4200) ⚡
+
+## 🚀 Uso de la Aplicación
+
+Una vez levantados el servidor backend y el frontend, puedes utilizar el siguiente flujo para generar y consumir ShortURLs:
+
+### 📌 Generación de una URL Corta (ShortURL)
+
+Para generar un enlace corto asociado a un DTE, realiza una solicitud `POST` a la siguiente ruta del servidor backend:
+
+```
+POST http://localhost:3000/api/url/generate-url
+```
+
+**Body de la solicitud (JSON):**
+
+```json
+{
+  "dteId": "ID_DEL_DTE"
+}
+```
+
+**Respuesta exitosa (ejemplo):**
+
+```json
+{
+  "shortUrl": "http://localhost:3000/s/46938d68"
+}
+```
+
+El `shortUrl` generado permitirá acceder al Documento Tributario Electrónico de manera segura y controlada.
+
+---
+
+### 📎 Explicación Técnica del Endpoint
+
+Este endpoint está definido en el archivo:
+
+```
+server/infrastructure/express/routes/urlRoutes.js
+```
+
+El flujo interno es el siguiente:
+
+1. **Entrada**: Se recibe el `dteId` enviado en el cuerpo del `POST`.
+2. **Servicio**: `UrlService.generateUrl(dteId)` valida la existencia del DTE y genera un ShortURL único.
+3. **Salida**:
+   - Si el DTE existe, se devuelve el objeto con el `shortUrl`.
+   - Si el DTE no existe, responde con error `404`.
+   - Si ocurre un error interno, responde con error `500`.
+
 
 ## 👨‍💻 Desarrollado por
 
