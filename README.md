@@ -231,7 +231,7 @@ Una vez levantados el servidor backend y el frontend, puedes utilizar el siguien
 Para generar un enlace corto asociado a un DTE, realiza una solicitud `POST` a la siguiente ruta del servidor backend:
 
 ```
-POST http://localhost:3000/api/url/generate-url
+POST http://localhost:3000/api/generate-url
 ```
 
 **Body de la solicitud (JSON):**
@@ -252,25 +252,16 @@ POST http://localhost:3000/api/url/generate-url
 
 El `shortUrl` generado permitirá acceder al Documento Tributario Electrónico de manera segura y controlada.
 
+Tras la validación exitosa (token válido, no expirado y contador correcto), el sistema redireccionará automáticamente a una URL segura generada dinámicamente. En esta nueva dirección, se 
+mostrará el archivo XML correspondiente al documento tributario solicitado.
+
+**Ejemplo de la URL larga generada:**
+
+```
+http://localhost:3000/getXML/cb6c99293ee9bdcee9e59ae59e4eb798:7b22dd0d79056bc1b472c9e7ef96676b:18a58664164faeac6a29040803da5c9920980776f5b9e708e8930983161c9f74
+```
+
 ---
-
-### 📎 Explicación Técnica del Endpoint
-
-Este endpoint está definido en el archivo:
-
-```
-server/infrastructure/express/routes/urlRoutes.js
-```
-
-El flujo interno es el siguiente:
-
-1. **Entrada**: Se recibe el `dteId` enviado en el cuerpo del `POST`.
-2. **Servicio**: `UrlService.generateUrl(dteId)` valida la existencia del DTE y genera un ShortURL único.
-3. **Salida**:
-   - Si el DTE existe, se devuelve el objeto con el `shortUrl`.
-   - Si el DTE no existe, responde con error `404`.
-   - Si ocurre un error interno, responde con error `500`.
-
 
 ## 👨‍💻 Desarrollado por
 
