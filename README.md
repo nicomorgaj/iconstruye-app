@@ -1,59 +1,81 @@
-# IconstruyeApp
+# IConstruye - Proyecto DTE ShortURL 🚀📑
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.7.
+![logo](https://github.com/user-attachments/assets/3bebc82d-8d47-41b0-a5bc-2db65fd33b4b)
 
-## Development server
+### Resumen 🌟
 
-To start a local development server, run:
+Este proyecto es una aplicación de software que permite la generación de **enlaces cortos** (ShortURLs) de **Documentos Tributarios Electrónicos (DTE)** simulados en Chile, cumpliendo prácticas de **arquitectura hexagonal** para separar responsabilidades.
 
-```bash
-ng serve
-```
+Está desarrollado usando **Node.js** y **Express** de manera modular, permitiendo:
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- Crear ShortURLs asociados a un DTE.
+- Validar expiración o máximo de usos.
+- Redirigir al recurso original simulado.
+- Contabilizar los accesos.
 
-## Code scaffolding
+Además, se desarrolló una demo frontend en **Angular**, implementando un **Design System** y utilizando la librería de componentes **PrimeNG** para la construcción de la interfaz.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+---
 
-```bash
-ng generate component component-name
-```
+## 🚀 Tecnologías Utilizadas
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+- **Frontend**: Angular 19.2.8 🎨
+- **Backend**: Node.js 18.20.4 + Express 4.21.2 🌐
+- **Base de datos**: Archivo JSON en memoria (sin motor externo) 🧠
+- **Otros**:
+  - Arquitectura Hexagonal 🧩
+  - Pruebas Unitarias (Jest) 🧪
+  - Generación de URL Cortas utilizando Crypto 🔑
+  - Validación y generación de Token utilizando JWT 🔐
 
-```bash
-ng generate --help
-```
+---
 
-## Building
+## 📁 Estructura del Proyecto
 
-To build the project run:
+- `/`: carpeta raíz donde se encuentra el proyecto frontend y backend.
+- `server/`: contiene el desarrollo backend.
 
-```bash
-ng build
-```
+---
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## 🛠 Instalación y Ejecución
 
-## Running unit tests
+Sigue los pasos a continuación para configurar y ejecutar el proyecto:
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
+### 1️⃣ Clonar el Repositorio
 
 ```bash
-ng e2e
+$ git clone https://github.com/nicomorgaj/iconstruye-app.git
+$ cd iconstruye-app
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+### 2️⃣ Instalación de Dependencias
 
-## Additional Resources
+```bash
+$ npm install
+```
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+### 3️⃣ Levantar el Servidor Backend
+
+```bash
+$ npm run start:server
+```
+
+El servidor estará disponible en: [http://localhost:3000](http://localhost:3000) 🌐
+
+### 4️⃣ Ejecutar las Pruebas Unitarias
+
+```bash
+$ npm run test
+```
+
+### 5️⃣ Levantar el Proyecto Frontend Angular
+
+```bash
+$ ng serve
+```
+
+El servidor de desarrollo de Angular estará disponible en: [http://localhost:4200](http://localhost:4200) ⚡
+
+## 👨‍💻 Desarrollado por
+
+Este proyecto ha sido desarrollado por **Nicolás Morales** como parte del desafío de postulación para el cargo de **Desarrollador FullStack** en **IConstruye**. 🚀✨
