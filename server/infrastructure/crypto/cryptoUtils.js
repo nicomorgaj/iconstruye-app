@@ -1,7 +1,11 @@
 const crypto = require("crypto");
+const { cryptoConfig } = require("../../config");
 
-const SECRET_KEY = crypto.createHash("sha256").update("messi").digest();
-const HMAC_KEY = crypto.createHash("sha256").update("supersecreto").digest();
+const SECRET_KEY = crypto
+  .createHash("sha256")
+  .update(cryptoConfig.secret)
+  .digest();
+
 const ALGORITHM = "aes-256-cbc";
 const IV_LENGTH = 16;
 

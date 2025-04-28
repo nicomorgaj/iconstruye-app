@@ -12,6 +12,9 @@ module.exports = {
   tokenConfig: {
     counter: process.env.TOKEN_COUNTER,
   },
+  cryptoConfig: {
+    secret: process.env.CRYPTO_SECRET,
+  },
   paths: {
     dteAssets: path.resolve(__dirname, "../assets/DTE"),
     dbAssets: path.resolve(__dirname, "../infrastructure/db"),
