@@ -1,3 +1,5 @@
+const path = require("path");
+
 jest.mock("../config/index", () => ({
   appConfig: {
     url: "http://localhost:3000",
@@ -11,10 +13,7 @@ jest.mock("../config/index", () => ({
     counter: "3",
   },
   paths: {
-    dteAssets: require("path").resolve(__dirname, "../assets/DTE"),
-    dbAssets: require("path").resolve(
-      __dirname,
-      "../../server/infrastructure/db",
-    ),
+    dteAssets: path.resolve(__dirname, "../assets/DTE"),
+    dbAssets: path.resolve(__dirname, "../infrastructure/db"),
   },
 }));

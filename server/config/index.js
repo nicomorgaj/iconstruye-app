@@ -13,7 +13,7 @@ module.exports = {
     counter: process.env.TOKEN_COUNTER,
   },
   paths: {
-    dteAssets: path.join(__dirname, "../assets/DTE"),
-    dbAssets: path.join(__dirname, "../../server/infrastructure/db"),
+    dteAssets: path.resolve(__dirname, "../assets/DTE"),
+    dbAssets: path.resolve(__dirname, "../infrastructure/db"),
   },
 };

@@ -18,13 +18,15 @@ router.get("/s/:short", async (req, res) => {
       });
     }
 
-    // Verificar si la url corta ha expirado
-    if (url.counter == 0) {
-      return res
-        .status(410)
-        .json({ error: "La URL superó el límite de usos." });
+    // Verificar si la propiedad counter existe y es válida
+    if (url.counter !== undefined) {
+      if (url.counter === 0) {
+        return res
+          .status(410)
+          .json({ error: "La URL superó el límite de usos." });
+      }
+      url.counter -= 1;
     }
-    url.counter -= 1;
 
     const xmlFile = await UrlService.readXMLFile(url.dteId);
     if (!xmlFile) {
