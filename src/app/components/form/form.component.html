@@ -5,7 +5,7 @@
       cardSubtitle="Listado de documentos tributarios"
     >
       <div>
-        <p-table [value]="data" [tableStyle]="{ 'min-width': '50rem' }">
+        <p-table [value]="dte" [tableStyle]="{ 'min-width': '50rem' }">
           <ng-template #header>
             <tr>
               <th>N°</th>
@@ -45,7 +45,7 @@
   <div class="flex items-center w-full mb-4">
     <ic-input
       label="Enlace Generado"
-      [value]="shortUrl"
+      [value]="shortUrl.shortUrl || ''"
       [disabled]="true"
     ></ic-input>
   </div>

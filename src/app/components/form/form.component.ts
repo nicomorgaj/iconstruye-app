@@ -9,7 +9,10 @@ import {
   CardComponent,
   InputComponent,
 } from '../../../../projects/iconstruye/src/public-api';
+
 import { ShortUrlService } from '../../services/short-url.service';
+import { ShortUrlInterface } from '../../interface/short-url.model';
+import { DteInterface } from '../../interface/dte.model';
 
 @Component({
   selector: 'app-form',
@@ -29,14 +32,14 @@ export class FormComponent implements OnInit {
   clipboard = inject(Clipboard);
   toast = inject(NgToastService);
 
-  data: any = [];
+  dte: DteInterface[] = [];
+  shortUrl: ShortUrlInterface = { shortUrl: '' };
   visible: boolean = false;
   selectedItem: number = 0;
-  shortUrl: string = '';
 
   ngOnInit() {
     this.shortUrlService.getData().subscribe((res) => {
-      this.data = res;
+      this.dte = res;
     });
   }
 
@@ -49,12 +52,12 @@ export class FormComponent implements OnInit {
 
   getShortUrl(item: number) {
     this.shortUrlService.getShortUrl(item).subscribe((res) => {
-      this.shortUrl = res.shortUrl;
+      this.shortUrl = res;
     });
   }
 
   copyShortUrl() {
-    this.clipboard.copy(this.shortUrl);
+    this.clipboard.copy(this.shortUrl.shortUrl || '');
     this.toast.success(
       'El enlace se ha copiado al portapapeles',
       'Enlace copiado',

@@ -17,9 +17,19 @@ class TokenService {
     const short = crypto.randomBytes(4).toString("hex");
 
     // Genero el token JWT
-    const token = jwt.sign({ shortUrl: short }, jwtConfig.secret, {
-      expiresIn: jwtConfig.expiresIn,
-    });
+    const token = jwt.sign(
+      {
+        shortUrl: short, // URL corta
+        dteId: dteId, // ID del DTE
+        iat: Math.floor(Date.now() / 1000), // Timestamp de creación)
+        jti: crypto.randomUUID(), // ID único del token
+      },
+      jwtConfig.secret,
+      {
+        algorithm: "HS256", // Algoritmo de firma
+        expiresIn: jwtConfig.expiresIn, // Tiempo de expiración
+      },
+    );
 
     // Agrego el token al modelo
     const newToken = new Token({
