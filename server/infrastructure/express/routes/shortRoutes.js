@@ -1,6 +1,10 @@
 const express = require("express");
 const router = express.Router();
+const TokenService = require("../../../application/services/TokenService");
 const UrlService = require("../../../application/services/UrlService");
+
+const { appConfig } = require("../../../config");
+const { encrypt } = require("../../../infrastructure/crypto/cryptoUtils");
 
 router.get("/s/:short", async (req, res) => {
   const { short } = req.params;
@@ -11,7 +15,7 @@ router.get("/s/:short", async (req, res) => {
     }
 
     // Verificar si el token es válido
-    const token = UrlService.validateToken(url.token);
+    const token = TokenService.validateToken(url.token);
     if (!token) {
       return res.status(401).json({
         error: "La URL se encuentra inválida y/o se encuentra expirada.",
@@ -28,14 +32,11 @@ router.get("/s/:short", async (req, res) => {
       url.counter -= 1;
     }
 
-    const xmlFile = await UrlService.readXMLFile(url.dteId);
-    if (!xmlFile) {
-      return res.status(404).json({ error: "El archivo XML no existe." });
-    }
+    // Encriptar la URL corta
+    const encryptToken = encrypt(url.short);
 
-    res.statusCode = 200;
-    res.setHeader("Content-Type", "text/xml");
-    res.end(xmlFile);
+    // Redireccionar a la URL corta
+    res.redirect(`${appConfig.url}/getXML/${encryptToken}`);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }

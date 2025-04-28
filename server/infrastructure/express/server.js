@@ -9,10 +9,11 @@ const cors = require("cors");
 const dteRoutes = require("./routes/dteRoutes");
 const urlRoutes = require("./routes/urlRoutes");
 const shortRoutes = require("./routes/shortRoutes");
+const largeRoutes = require("./routes/largeRoutes");
 
 app.use(express.json());
 app.use(cors());
-app.use("/", [shortRoutes]);
+app.use("/", [largeRoutes, shortRoutes]);
 app.use("/api", [dteRoutes, urlRoutes]);
 
 app.listen(PORT, () => {
