@@ -104,11 +104,34 @@ Implementación de repositorios que acceden al sistema de archivos:
 
 ---
 
-## 🧠 Funcionalidad Principal por Módulo
+## 🧠 Funcionalidad Principal por Dominio
 
 - **DTEs**: Gestiona el listado y recuperación de Documentos Tributarios Electrónicos.
 - **URLs**: Permite la generación de enlaces cortos seguros para los DTEs.
 - **Tokens**: Valida la autenticidad, controla el número de accesos y gestiona expiraciones de los ShortURLs.
+
+---
+
+## 🧪 Pruebas Unitarias
+
+Todas las pruebas unitarias se encuentran en el directorio `server/test`.  
+Cada parte de la arquitectura cuenta con pruebas específicas para asegurar su funcionalidad.
+
+### 📂 Cobertura de Pruebas por Dominio
+
+- **DTEs**
+  - Valida la correcta recuperación y listado de Documentos Tributarios Electrónicos (DTEs).
+  - Prueba el manejo de errores para DTEs inexistentes y distintos escenarios de búsqueda.
+
+- **URLs**
+  - Asegura la generación segura y única de enlaces cortos para los DTEs.
+  - Valida los datos de entrada y el manejo de errores durante el proceso de acortamiento.
+  - Verifica la configuración de expiración y el acceso seguro a los enlaces.
+
+- **Tokens**
+  - Verifica la autenticidad de los tokens y el control correcto del número de accesos permitidos.
+  - Prueba el comportamiento de expiración de tokens.
+  - Asegura el rechazo de accesos con tokens inválidos o expirados.
 
 ---
 
@@ -125,6 +148,15 @@ $ cd iconstruye-app
 
 ### 2️⃣ Instalación de Dependencias
 
+#### 📦 Para Backend
+
+```bash
+$ cd server
+$ npm install
+```
+
+#### 🎨 Para Frontend
+
 ```bash
 $ npm install
 ```
@@ -132,12 +164,12 @@ $ npm install
 ### 3️⃣ Levantar el Servidor Backend
 
 ```bash
-$ npm run start:server
+$ npm run dev
 ```
 
 El servidor estará disponible en: [http://localhost:3000](http://localhost:3000) 🌐
 
-### 4️⃣ Ejecutar las Pruebas Unitarias
+### 4️⃣ Ejecutar las Pruebas Unitarias en el Servidor Backend
 
 ```bash
 $ npm run test
@@ -150,6 +182,35 @@ $ ng serve
 ```
 
 El servidor de desarrollo de Angular estará disponible en: [http://localhost:4200](http://localhost:4200) ⚡
+
+---
+
+### 🐳 Levantar la aplicación con Docker 
+
+#### 🛠️ Construir las imágenes
+
+```bash
+$ docker-compose build
+```
+
+#### 🚀 Levantar los contenedores
+
+```bash
+$ docker-compose up
+```
+
+Esto levantará tanto el **servidor Backend** como el **Frontend Angular** automáticamente en sus respectivos contenedores.
+Por defecto el servidor Backend se levantará en el puerto 3000 y el Frontend Angular en el puerto 80.
+
+#### 📦 Detener los contenedores
+
+Para detener todo:
+
+```bash
+$ docker-compose down
+```
+
+---
 
 ## 🚀 Uso de la Aplicación
 
