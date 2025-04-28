@@ -8,8 +8,7 @@
     "build:theme": "style-dictionary build --config ./style-dictionary/config.json",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:iconstruye-app": "node dist/iconstruye-app/server/server.mjs",
-    "start:server": "node server/infrastructure/express/server.js"
+    "serve:ssr:iconstruye-app": "node dist/iconstruye-app/server/server.mjs"
   },
   "private": true,
   "dependencies": {
@@ -24,10 +23,7 @@
     "@angular/ssr": "^19.2.7",
     "@primeng/themes": "^19.1.0",
     "@tailwindcss/postcss": "^4.1.4",
-    "crypto": "^1.0.1",
-    "dotenv": "^16.5.0",
     "express": "^4.18.2",
-    "jsonwebtoken": "^9.0.2",
     "ng-angular-popup": "^0.6.6",
     "postcss": "^8.5.3",
     "primeng": "^19.1.0",

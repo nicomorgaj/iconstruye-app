@@ -1,14 +1,14 @@
 const express = require("express");
-require("dotenv").config();
+require("dotenv").config({ path: "./.env" });
 const { appConfig } = require("../../config");
-
-const dteRoutes = require("./routes/dteRoutes");
-const urlRoutes = require("./routes/urlRoutes");
-const shortRoutes = require("./routes/shortRoutes");
 
 const app = express();
 const PORT = appConfig.port;
 const cors = require("cors");
+
+const dteRoutes = require("./routes/dteRoutes");
+const urlRoutes = require("./routes/urlRoutes");
+const shortRoutes = require("./routes/shortRoutes");
 
 app.use(express.json());
 app.use(cors());

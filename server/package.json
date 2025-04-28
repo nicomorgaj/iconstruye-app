@@ -1,0 +1,20 @@
+{
+  "name": "iconstruye-backend",
+  "version": "1.0.0",
+  "main": "infrastructure/express/server.js",
+  "scripts": {
+    "dev": "node infrastructure/express/server.js",
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "jest": "^29.7.0",
+    "jsonwebtoken": "^9.0.2"
+  }
+}

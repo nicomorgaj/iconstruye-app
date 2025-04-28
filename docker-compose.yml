@@ -1,0 +1,32 @@
+services:
+  backend:
+    build:
+      context: ./server
+      dockerfile: docker/Dockerfile
+    image: iconstruye-backend
+    container_name: backend-iconstruye
+    env_file:
+      - ./server/.env
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./server:/usr/src/app
+      - /usr/src/app/node_modules
+    command: npm run dev
+    networks:
+      - app_network
+  frontend:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    image: iconstruye-frontend
+    container_name: frontend-iconstruye
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - app_network
+
+networks:
+  app_network:
