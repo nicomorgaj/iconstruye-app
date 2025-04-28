@@ -1,5 +1,17 @@
 @use "../theme/generated/variables" as *;
 
-::ng-deep .p-card {
-  box-shadow: 15px 15px 50px 3px rgba(0, 0, 0, 0.15);
+::ng-deep ic-card p-card .p-card {
+  box-shadow: $card-box-shadow;
+
+  .p-card-title {
+    color: $card-title-color;
+    font-family: $card-title-font-family;
+    font-weight: $card-title-font-weight;
+    text-transform: $card-title-text-transform;
+  }
+
+  .p-card-subtitle {
+    color: $card-subtitle-color;
+    font-weight: $card-subtitle-font-weight;
+  }
 }

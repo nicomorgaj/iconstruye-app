@@ -1,7 +1,10 @@
 const UrlRepository = require("../../infrastructure/fileSystem/UrlRepository");
 const Url = require("../../domain/models/Url");
+
 const TokenService = require("./TokenService");
 const DteService = require("./DteService");
+
+const { appConfig } = require("../../config");
 
 class UrlService {
   async generateUrl(dteId) {
@@ -12,7 +15,7 @@ class UrlService {
 
     const shortId = TokenService.generateShortUrl(dte.id);
     const shortUrl = new Url({
-      shortUrl: `http://localhost:3000/s/${shortId.short}`,
+      shortUrl: `${appConfig.url}/s/${shortId.short}`,
     });
     return shortUrl;
   }

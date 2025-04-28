@@ -3,6 +3,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { Clipboard } from '@angular/cdk/clipboard';
 import { DialogModule } from 'primeng/dialog';
 import { TableModule } from 'primeng/table';
+import { NgToastService } from 'ng-angular-popup';
 import {
   ButtonComponent,
   CardComponent,
@@ -26,6 +27,7 @@ import { ShortUrlService } from '../../services/short-url.service';
 export class FormComponent implements OnInit {
   shortUrlService = inject(ShortUrlService);
   clipboard = inject(Clipboard);
+  toast = inject(NgToastService);
 
   data: any = [];
   visible: boolean = false;
@@ -53,6 +55,10 @@ export class FormComponent implements OnInit {
 
   copyShortUrl() {
     this.clipboard.copy(this.shortUrl);
-    // alert('Enlace copiado al portapapeles');
+    this.toast.success(
+      'El enlace se ha copiado al portapapeles',
+      'Enlace copiado',
+      3000,
+    );
   }
 }

@@ -1,10 +1,13 @@
 const express = require("express");
+require("dotenv").config();
+const { appConfig } = require("../../config");
+
 const dteRoutes = require("./routes/dteRoutes");
 const urlRoutes = require("./routes/urlRoutes");
 const shortRoutes = require("./routes/shortRoutes");
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = appConfig.port;
 const cors = require("cors");
 
 app.use(express.json());

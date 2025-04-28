@@ -1,13 +1,16 @@
 const path = require("path");
 
 module.exports = {
-  app: {
-    port: process.env.PORT || 3000,
-    env: process.env.NODE_ENV || "development",
+  appConfig: {
+    url: process.env.APP_URL,
+    port: process.env.PORT,
   },
   jwtConfig: {
-    secret: process.env.JWT_SECRET || "R[C3'3LEHd8/5ob<B|F}",
-    expiresIn: "5m",
+    secret: process.env.JWT_SECRET,
+    expiresIn: process.env.JWT_EXPIRATION,
+  },
+  tokenConfig: {
+    counter: process.env.TOKEN_COUNTER,
   },
   paths: {
     dteAssets: path.join(__dirname, "../assets/DTE"),

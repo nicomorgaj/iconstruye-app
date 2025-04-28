@@ -2,7 +2,7 @@ const crypto = require("crypto");
 const jwt = require("jsonwebtoken");
 
 const Token = require("../../domain/models/Token");
-const { jwtConfig } = require("../../config");
+const { jwtConfig, tokenConfig } = require("../../config");
 
 class TokenService {
   constructor() {
@@ -22,7 +22,12 @@ class TokenService {
     });
 
     // Agrego el token al modelo
-    const newToken = new Token({ dteId, short, token, counter: 5 });
+    const newToken = new Token({
+      dteId,
+      short,
+      token,
+      counter: tokenConfig.counter,
+    });
 
     // Almaceno el token en la memoria
     this.dteTokens.set(dteId, newToken);

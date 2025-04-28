@@ -6,7 +6,7 @@
 
 ::ng-deep.p-iftalabel {
   .p-inputtext {
-    width: 100%;
+    width: $input-width;
     background-color: $input-background-default;
     border-radius: $input-border-radius;
 
@@ -23,6 +23,6 @@
   &:has(textarea:focus) label,
   &:has(.p-inputwrapper--focus) label {
     color: $input-active-border;
-    font-weight: 800;
+    font-weight: $input-active-font-weight;
   }
 }

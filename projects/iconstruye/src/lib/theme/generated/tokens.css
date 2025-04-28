@@ -3,10 +3,19 @@
  */
 
 :root {
+  --card-title-color: #3153a2;
+  --card-title-text-transform: uppercase;
+  --card-title-font-family: Poppins, sans-serif;
+  --card-title-font-weight: 900;
+  --card-subtitle-color: #000;
+  --card-subtitle-font-weight: 500;
+  --card-box-shadow: 15px 15px 50px 3px rgba(0, 0, 0, 0.15);
+  --input-width: 100%;
   --input-border-radius: 0;
   --input-background-default: #ebebeb;
   --input-active-border: #3153a2;
   --input-active-border-radius: 4px;
+  --input-active-font-weight: 800;
   --button-primary-background-default: #fff;
   --button-primary-background-hover: #ff6b00;
   --button-primary-background-disabled: #AECBFA;
