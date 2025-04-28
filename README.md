@@ -163,6 +163,16 @@ $ npm install
 
 ### 3️⃣ Levantar el Servidor Backend
 
+#### 📝 Copiar archivo de entorno
+
+```bash
+$ cd server
+$ cp .env.example .env
+```
+> ⚠️ **Importante:** No olvidar completar los datos del archivo `.env` antes de levantar el servidor.
+
+#### 🚀 Iniciar el servidor
+
 ```bash
 $ npm run dev
 ```
