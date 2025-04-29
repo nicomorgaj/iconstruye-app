@@ -197,6 +197,14 @@ El servidor de desarrollo de Angular estará disponible en: [http://localhost:42
 
 ### 🐳 Levantar la aplicación con Docker 
 
+#### 📝 Copiar archivo de entorno
+
+```bash
+$ cd server
+$ cp .env.example .env
+```
+> ⚠️ **Importante:** No olvidar completar los datos del archivo `.env` antes de levantar el servidor.
+
 #### 🛠️ Construir las imágenes
 
 ```bash
