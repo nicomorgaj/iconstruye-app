@@ -2,7 +2,7 @@ services:
   backend:
     build:
       context: ./server
-      dockerfile: docker/Dockerfile
+      dockerfile: Dockerfile
     image: iconstruye-backend
     container_name: backend-iconstruye
     env_file:
@@ -18,7 +18,7 @@ services:
   frontend:
     build:
       context: .
-      dockerfile: docker/Dockerfile
+      dockerfile: Dockerfile
     image: iconstruye-frontend
     container_name: frontend-iconstruye
     ports:
