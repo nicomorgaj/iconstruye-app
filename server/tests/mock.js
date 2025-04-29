@@ -10,6 +10,9 @@ jest.mock("../config/index", () => ({
   tokenConfig: {
     counter: "3",
   },
+  cryptoConfig: {
+    secret: "test_secret",
+  },
   paths: {
     dteAssets: require("path").resolve(__dirname, "../assets/DTE"),
     dbAssets: require("path").resolve(
