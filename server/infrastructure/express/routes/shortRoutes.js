@@ -4,7 +4,6 @@ const TokenService = require("../../../application/services/TokenService");
 const UrlService = require("../../../application/services/UrlService");
 
 const { appConfig } = require("../../../config");
-const { encrypt } = require("../../../infrastructure/crypto/cryptoUtils");
 
 router.get("/s/:short", async (req, res) => {
   const { short } = req.params;
@@ -33,7 +32,7 @@ router.get("/s/:short", async (req, res) => {
     }
 
     // Encriptar la URL corta
-    const encryptToken = encrypt(url.short);
+    const encryptToken = TokenService.encryptURL(url.short);
 
     // Redireccionar a la URL corta
     res.redirect(`${appConfig.url}/getXML/${encryptToken}`);

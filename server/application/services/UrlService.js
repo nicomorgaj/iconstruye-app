@@ -7,6 +7,11 @@ const DteService = require("./DteService");
 const { appConfig } = require("../../config");
 
 class UrlService {
+  /**
+   * Genera la url corta para el DTE
+   * @param {integer} dteId - Id del DTE
+   * @returns {string} - Url corta
+   */
   async generateUrl(dteId) {
     // Verificar si el DTE existe
     const dte = await DteService.getDteById(dteId);
@@ -24,6 +29,11 @@ class UrlService {
     return shortUrl;
   }
 
+  /**
+   * Devuelve el token a partir de la url corta
+   * @param {string} short - Url corta
+   * @returns {json} - Retorna el json con el token y los datos del DTE
+   */
   getUrlByToken(short) {
     // Verificar si el token es válido
     const getShort = TokenService.getTokenByShort(short);
@@ -33,6 +43,11 @@ class UrlService {
     return getShort;
   }
 
+  /**
+   * Valida si el token es válido
+   * @param {string} token - Token a validar
+   * @returns {json} -Retorna el json con la información del token
+   */
   validateToken(token) {
     // Verificar si el token es válido
     const decoded = TokenService.validateToken(token);
@@ -42,6 +57,11 @@ class UrlService {
     return decoded;
   }
 
+  /**
+   * Leer el archivo XML
+   * @param {string} shortUrl - Url corta
+   * @returns {xml} - Retorna el archivo XML
+   */
   async readXMLFile(shortUrl) {
     // Verificar si el token es válido
     const token = TokenService.getTokenByShort(shortUrl);

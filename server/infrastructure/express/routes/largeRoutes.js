@@ -1,23 +1,20 @@
 const express = require("express");
 const router = express.Router();
 const UrlService = require("../../../application/services/UrlService");
-const {
-  decrypt,
-  validate,
-} = require("../../../infrastructure/crypto/cryptoUtils");
+const TokenService = require("../../../application/services/TokenService");
 
 router.get("/getXML/:large", async (req, res) => {
   const { large } = req.params;
 
   try {
     // Desencriptar el token
-    const decryptedToken = decrypt(large);
+    const decryptedToken = TokenService.decryptURL(large);
     if (!decryptedToken) {
       return res.status(401).json({ error: "El archivo XML no existe." });
     }
 
     // Validar el token
-    const isValid = validate(decryptedToken, large);
+    const isValid = TokenService.validateURL(decryptedToken, large);
     if (!isValid) {
       return res.status(401).json({ error: "El archivo XML no existe." });
     }
